@@ -1,0 +1,12 @@
+  story-processor:
+    build: ./story-processor-service
+    container_name: story-processor
+    depends_on:
+      - kafka
+    volumes:
+      - ./story-processor-service:/usr/src/app
+    environment:
+      - KAFKA_BROKER=kafka:9092
+      - CLOUDINARY_CLOUD_NAME=your-cloud
+      - CLOUDINARY_API_KEY=your-key
+      - CLOUDINARY_API_SECRET=your-secret
